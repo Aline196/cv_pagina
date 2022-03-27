@@ -9,7 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
+
+
+    
+
     <div class="container">
+
+      <p>Loading content from the API: <b id="name">...</b></p>
+    
+
+    
+
       <aside class="left-side">
         <img
           src="./images/photo1.jpg"
@@ -157,5 +167,13 @@
         </section>
       </div>
     </div>
+
+    <script>
+      (async function() {
+          const { text } = await( await fetch(`/api/message`)).json();
+          document.querySelector('#name').textContent = text;
+      }())
+    </script>
+
   </body>
 </html>
